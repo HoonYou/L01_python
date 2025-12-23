@@ -19,12 +19,33 @@ for vote in votes:
 print(result) # 집계 완료!
 
 # 최다 득표 인원 찾기 (동점 없을 때)
-max_counts = 0
-max_name = ""
+max_counts = 0 # 초기값 충분히 작게 세팅
+max_name = ""  # 문자열 초기값 세팅 (사실 없어도 됨)
 
 for k,v in result.items():
+    print(v, max_counts)
     if v > max_counts:
         max_counts = v
-        max_name = k
+        max_name = k # 재할당 하기 때문
 
 print(f'반장은 {max_counts}표 득표한 {max_name}가 되었습니다.')
+
+
+# 최다 득표 인원 찾기 (동점 있을 때)
+# result['짱구'] = 4
+max_counts = 0 # 초기값 충분히 작게 세팅
+max_name = [] 
+# 최대 득표자를 어떻게 저장할 것이냐 -> 여러 이름 저장 가능한 자료구조 (list)
+
+for k, v in result.items():
+    print(v, max_counts)
+    if v >= max_counts:
+        max_counts = v
+        max_name.append(k) # 최다득표 인원 저장을 위한 리스트가 먼저 만들어져 있어야 함
+
+if len(max_name)>1:
+    print('재투표가 필요합니다.')
+else:
+    print(f'반장은 {max_counts}표 득표한 {max_name}가 되었습니다.')
+
+print(result)
