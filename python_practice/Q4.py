@@ -1,4 +1,4 @@
-# [실습 4] 
+# [실습 4]
 # 과목별 점수가 담긴 리스트(scores)를 입력받아 합격 여부를 판정하는 함수를 만드시오.
 
 # [합격 조건]
@@ -8,9 +8,21 @@
 # [반환값]
 # 합격일 경우 "PASS", 불합격일 경우 "FAIL"을 반환
 
+import numpy as np
+
+
 def check_result(scores):
-    # pass를 지우고 로직을 작성합니다.
-    pass
+    answer = ""
+
+    if np.mean(scores) >= 60:
+        answer = "pass"
+    else:
+        answer = "Fail"
+    for i in scores:
+        if i < 40:
+            answer = "Fail"
+    return answer
+
 
 # 테스트 코드
 print(f"결과 1 (PASS 예상): {check_result([80, 90, 75])}")

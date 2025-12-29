@@ -6,15 +6,12 @@
 # 2. 대출 횟수가 같다면, 출판 연도(year)가 최신인 순서대로 (내림차순)
 
 books = [
-    {'title': '파이썬 기초', 'loans': 45, 'year': 2021},
-    {'title': '데이터 분석 실무', 'loans': 72, 'year': 2023},
-    {'title': '머신러닝 입문', 'loans': 45, 'year': 2022},
-    {'title': '딥러닝 가이드', 'loans': 72, 'year': 2021},
-    {'title': '통계학의 이해', 'loans': 30, 'year': 2020}
+    {"title": "파이썬 기초", "loans": 45, "year": 2021},
+    {"title": "데이터 분석 실무", "loans": 72, "year": 2023},
+    {"title": "머신러닝 입문", "loans": 45, "year": 2022},
+    {"title": "딥러닝 가이드", "loans": 72, "year": 2021},
+    {"title": "통계학의 이해", "loans": 30, "year": 2020},
 ]
 
-# 로직 작성 (sorted() 또는 sort() 함수와 lambda를 활용하세요)
+print(sorted(books, key=lambda x: (-x["loans"], -x["year"])))
 
-
-
-# print(sorted_books)
